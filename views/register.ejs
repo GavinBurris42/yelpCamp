@@ -4,11 +4,17 @@
 	<h1 class="formHeader">Sign Up</h1>
 	<div class="yelpForm">
 		<form action="/register" method="POST">
+			<label for="username">Username</label>
 			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder="username" required>
+				<input class="form-control" type="text" name="username" id="username" placeholder="username" required>
 			</div>
+			<label for="password">Password</label>
 			<div class="form-group">
-				<input class="form-control" type="password" name="password" placeholder="password" required>
+				<input class="form-control" type="password" name="password" id="password" placeholder="password" required>
+			</div>
+			<label for="adminCode">Admin Code</label>
+			<div class="form-group">
+				<input class="form-control" type="password" name="adminCode" id="adminCode" placeholder="admin code">
 			</div>
 			<div class="form-group">
 				<button class="btn btn-lg btn-lg btn-block btn-primary">Submit</button>

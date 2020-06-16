@@ -5,16 +5,24 @@
 	<div class="yelpForm">
 		<form action="/campgrounds" method="POST">
 			<div class="form-group">
-				<input class="form-control" type="text" name="name" placeholder="name" required>
+				<label for="name">Name:</label>
+				<input class="form-control" type="text" name="name" id="name" placeholder="New York City" required>
 			</div>
 			<div class="form-group">
-				<input class="form-control" type="number" name="price" placeholder="price" min="0.01" step="0.01">
+				<label for="price">Price</label>
+				<input class="form-control" type="number" name="price" id="price" placeholder="price" min="0.01" step="0.01" required>
 			</div>
 			<div class="form-group">
-				<input class="form-control" type="text" name="image" placeholder="image url" required>
+				<label for="image">Image URL</label>
+				<input class="form-control" type="text" name="image" id="image" placeholder="https://images.unsplash.com/photo-1496588152823-86ff7695e68f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" required>
 			</div>
 			<div class="form-group">
-				<input class="form-control" type="text" name="description" placeholder="description" required>
+				<label for="description">Description</label>
+				<input class="form-control" type="text" name="description" id="description" placeholder="The Big Apple" required>
+			</div>
+			<div class="form-group">
+				<label for="location">Location:</label>
+				<input class="form-control" type="text" name="location" id="location" placeholder="New York, NY" required>
 			</div>
 			<div class="form-group">
 				<button class="btn btn-default btn-lg btn-block btn-primary">Submit</button>

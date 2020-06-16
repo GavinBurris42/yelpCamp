@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var Campground = require("./models/campground"),
 	Comment = require("./models/comment"),
 	User = require("./models/user"),
@@ -16,7 +18,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	commentRoutes = require("./routes/comments"),
 	indexRoutes = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL, {
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
+mongoose.connect(url, {
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false

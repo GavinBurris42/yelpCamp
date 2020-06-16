@@ -18,3 +18,9 @@
 .formHeader {
 	text-align: center;
 }
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}

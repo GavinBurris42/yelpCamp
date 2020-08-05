@@ -3,7 +3,8 @@ var express = require("express"),
 	Campground = require("../models/campground"),
 	Comment = require("../models/comment"),
 	middleware = require("../middleware/index"),
-	NodeGeocoder = require("node-geocoder");
+	NodeGeocoder = require("node-geocoder"),
+	User = require("../models/user");
 
 var options = {
 	provider: "google",
@@ -71,7 +72,14 @@ router.get("/:id", function(req, res) {
 			req.flash("error", "Campground not found!");
 			return res.redirect("back");
 		}
-		res.render("campgrounds/show", {campground: foundCampground});
+		User.findById(foundCampground.author.id, function(err, foundUser) {
+			if(err || !foundUser) {
+				req.flash("error", "User not found!");
+				return res.redirect("back");
+			}
+			console.log(foundUser);
+			res.render("campgrounds/show", {campground: foundCampground, user: foundUser});
+		})
 	});
 });
 

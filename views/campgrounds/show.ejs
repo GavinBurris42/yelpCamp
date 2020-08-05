@@ -4,9 +4,9 @@
 	<div class="col-md-3">
 		<p class="lead">YelpCamp</p>
 		<ul class="list-group">
-			<li class="list-group-item active">Info 1</li>
-			<li class="list-group-item">Info 2</li>
-			<li class="list-group-item">Info 3</li>
+			<li class="list-group-item">Creator Name: <%= user.firstName + " " + user.lastName %> </li>
+			<li class="list-group-item">Location: <%= campground.location %> </li>
+			<!-- <li class="list-group-item">Info 3</li> -->
 		</ul>
 		<div id="map"></div>
 	</div>
@@ -17,7 +17,7 @@
 				<h4 class="pull-right">$<%= campground.price %>/night</h4>
 				<h4><a><%= campground.name %></a></h4>
 				<p><%= campground.description %></p>
-				<p><small><em>-Submitted by <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em></small></p>
+				<p><small><em>-Submitted by <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em></small></p>
 				<% if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin)) { %>
 					<a class="btn btn-warning btn-xs" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
 					<form class="deleteForm" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
